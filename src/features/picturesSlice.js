@@ -11,22 +11,15 @@ const categoriesList = [
     'Mountains', 'Flowers', 'Cities',
     'Beaches', 'Fruits', 'Animals',
     'Cars', 'Bikes', 'Mobiles',
-    'Accessories', 'Laptops', 'Watches',
+    'Accessories', 'Laptops', 'Watches', 'Computer', 'Technology'
 ]
 
 const initialState = {
     picturesList: null,
-    categoriesList: [
-        'Mountains', 'Flowers', 'Cities',
-        'Beaches', 'Fruits', 'Animals',
-        'Cars', 'Bikes', 'Mobiles',
-        'Accessories', 'Laptops', 'Watches',
-    ],
+    categoriesList: categoriesList,
     activeCategory: categoriesList[0],
     apiStatus: apiStatusConstants.initial
 }
-
-
 
 export const pictureSlice = createSlice({
     name: "picture",
@@ -38,18 +31,21 @@ export const pictureSlice = createSlice({
         updatePicturesList: (state, action) => {
             state.picturesList = action.payload
         },
-        setApiStatus:(state,action)=>{
+        setApiStatus: (state, action) => {
             switch (action.payload) {
                 case apiStatusConstants.inProgress:
                     state.apiStatus = apiStatusConstants.inProgress
+                    break;
                 case apiStatusConstants.success:
                     state.apiStatus = apiStatusConstants.success
+                    break;
                 case apiStatusConstants.failure:
                     state.apiStatus = apiStatusConstants.failure
+                    break;
                 default:
                     state.apiStatus = apiStatusConstants.initial
             }
-           
+
         }
     }
 })
