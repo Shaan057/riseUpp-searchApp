@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const apiStatusConstants = {
+export const apiStatusConstants = {
     initial: 'INITIAL',
     success: 'SUCCESS',
     failure: 'FAILURE',
