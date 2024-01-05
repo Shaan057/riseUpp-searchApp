@@ -18,7 +18,8 @@ const initialState = {
     picturesList: null,
     categoriesList: categoriesList,
     activeCategory: categoriesList[0],
-    apiStatus: apiStatusConstants.initial
+    apiStatus: apiStatusConstants.initial,
+    isHovered: false,
 }
 
 export const pictureSlice = createSlice({
@@ -46,11 +47,14 @@ export const pictureSlice = createSlice({
                     state.apiStatus = apiStatusConstants.initial
             }
 
+        },
+        updateIsHovered: (state, action) => {
+            state.isHovered = action.payload
         }
     }
 })
 
 
-export const { setActiveCategory, updatePicturesList, setApiStatus } = pictureSlice.actions
+export const { setActiveCategory, updatePicturesList, setApiStatus, updateIsHovered } = pictureSlice.actions
 
 export default pictureSlice.reducer
