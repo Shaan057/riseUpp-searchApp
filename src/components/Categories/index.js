@@ -1,12 +1,13 @@
 import './index.css'
 import { useSelector, useDispatch } from 'react-redux';
-import { setActiveCategory } from '../../features/picturesSlice';
+import { setActiveCategory, resetPage } from '../../features/picturesSlice';
 
 const Categories = ({ category }) => {
     const dispatch = useDispatch()
 
     const updateActiveTab = (tab) => {
         dispatch(setActiveCategory(tab))
+        dispatch(resetPage())
     }
 
     const setActiveTab = () => {

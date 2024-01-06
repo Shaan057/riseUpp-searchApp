@@ -1,7 +1,7 @@
 import './index.css'
 import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateSearchInput, updatePicturesList, setActiveCategory, setApiStatus, nextPage, previousPage } from '../../features/picturesSlice';
+import { updateSearchInput, updatePicturesList, setActiveCategory, setApiStatus, nextPage, previousPage, resetPage } from '../../features/picturesSlice';
 import { FaSearch, FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 import { v4 as uuidv4 } from 'uuid'
 import Categories from '../Categories'
@@ -76,6 +76,7 @@ const Home = () => {
         const { value } = event.target
         if (key === 'Enter') {
             dispatch(setActiveCategory(searchQuery))
+            dispatch(resetPage())
         }
     }
 
@@ -86,6 +87,7 @@ const Home = () => {
 
     const onSearchButtonClicked = () => {
         dispatch(setActiveCategory(searchQuery))
+        dispatch(resetPage())
     }
 
     const onClickNextPage = () => {
