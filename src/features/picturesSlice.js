@@ -11,21 +11,26 @@ const categoriesList = [
     'Mountains', 'Flowers', 'Cities',
     'Beaches', 'Fruits', 'Animals',
     'Cars', 'Bikes', 'Mobiles',
-    'Accessories', 'Laptops', 'Watches', 'Computer', 'Technology'
+    'Accessories', 'Laptops', 'Watches',
+    'Technology', 'Cycle'
 ]
 
 const initialState = {
+    searchInput: '',
     picturesList: null,
     categoriesList: categoriesList,
     activeCategory: categoriesList[0],
     apiStatus: apiStatusConstants.initial,
-    isHovered: false,
+    isHovered: 0,
 }
 
 export const pictureSlice = createSlice({
     name: "picture",
     initialState,
     reducers: {
+        updateSearchInput: (state, action) => {
+            state.searchInput = action.payload
+        },
         setActiveCategory: (state, action) => {
             state.activeCategory = action.payload
         },
@@ -55,6 +60,6 @@ export const pictureSlice = createSlice({
 })
 
 
-export const { setActiveCategory, updatePicturesList, setApiStatus, updateIsHovered } = pictureSlice.actions
+export const { updateSearchInput, setActiveCategory, updatePicturesList, setApiStatus, updateIsHovered } = pictureSlice.actions
 
 export default pictureSlice.reducer
