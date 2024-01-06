@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# <span style="color: green;"> Rise Upp App</span>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### An application that allows users to search for a collection of pictures.
 
-## Available Scripts
+### <span style="color: orange;"> Usage</span>
 
-In the project directory, you can run:
+```
+git clone <github repository link>  //to clone the github repository
+npm install                         //to install all the dependencies required to run application
+npm start                           //to start the application
+```
 
-### `npm start`
+## <span style="color: Orange;"> Development</span>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### <span style="color: red;"> Tech Stack</span>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> <span style="color: violet;">Frontend - ReactJS (Redux)</span>
 
-### `npm test`
+### <span style="color: red;"> Features and Functionality</span>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- App consist of `Input section`, `picture category bar` & `list of pictures` with `pagination`. 
+- `Home page` consists of `input Section` where user can `enter picture category` to get a list of pictures.
+- On clicking on the `categories tab` will display the `respective category images`.
+- `Active category` tab on the tab.
+- On `hover` over the picture `pop` ups the `image info`.
+- `No Results view` in case of `no results` for user input.
+- `Failure view` on failure.
+- `Responsive`
 
-### `npm run build`
+## <span style="color: Green;"> Guidelines</span>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Followed Github Guidelines
+  - Made the commits often and made sure the commit messages are concise and specific.
+  - Included a README file for explaining the project setup, usage instructions.
+- Followed Clean Code Guidelines
+- The repo is well-organized and easy to navigate
+  - Followed the `create-react-app` folder structure
+- The Application handled all the errors
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## <span style="color: Green;"> Resources </span>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### API Details
 
-### `npm run eject`
+- You are required to register yourself as a developer and get the API keys at https://unsplash.com/developers
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- For making the search request and fetching the results use this API https://unsplash.com/documentation#search-photos
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### <span style="color: Green;"> Design Files </span>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Reference: https://wireframe.cc/2AETjp
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## <span style="color: Red;">Previews</span>
 
-## Learn More
+### <span style="color: Orange;"> Mobile View</span>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### <span style="color: yellow;"> Home View</span>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+###### ![Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704536303/riseup/Screenshot_421_vfx9hz.png)
 
-### Code Splitting
+#### <span style="color: yellow;"> No Results View</span>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+###### ![Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704536302/riseup/Screenshot_422_e6msln.png)
 
-### Analyzing the Bundle Size
+#### <span style="color: yellow;"> Failure View</span>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+###### ![Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704536302/riseup/Screenshot_423_j0dqh3.png)
 
-### Making a Progressive Web App
+### <span style="color: Orange;"> Desktop View</span>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### <span style="color: yellow;">Home Page</span>
 
-### Advanced Configuration
+###### ![Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704528606/riseup/home-page.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### <span style="color: yellow;">No Results View</span>
 
-### Deployment
+###### ![Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704528603/riseup/no-results-view.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### <span style="color: yellow;">Failure view</span>
 
-### `npm run build` fails to minify
+###### ![Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704528604/riseup/failure-view.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### <span style="color: violet;">Demo</span>
+
+### [Link](https://rise-upp-search-app.vercel.app/)
