@@ -1,7 +1,7 @@
 import './index.css'
 import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updatePicturesList, setActiveCategory, setApiStatus, updateIsHovered } from '../../features/picturesSlice';
+import { updateSearchInput, updatePicturesList, setActiveCategory, setApiStatus, updateIsHovered } from '../../features/picturesSlice';
 import { FaSearch } from "react-icons/fa";
 import { v4 as uuidv4 } from 'uuid'
 import Categories from '../Categories'
@@ -11,14 +11,17 @@ import { apiStatusConstants } from '../../features/picturesSlice';
 import Spinner from '../Spinner'
 
 const Home = () => {
+
     const picturesArray = useSelector((state) => state.picturesList)
     const categoriesArray = useSelector((state) => state.categoriesList)
     const activeCategoryTab = useSelector((state) => state.activeCategory)
     const getApiStatus = useSelector((state) => state.apiStatus)
+    const searchQuery = useSelector((state) => state.searchInput)
+    const isHoveredOn = useSelector((state) => state.isHovered)
     const inputRef = useRef(null)
     const dispatch = useDispatch()
-    console.log(picturesArray)
-    console.log(activeCategoryTab)
+    // console.log(picturesArray)
+    // console.log(activeCategoryTab)
 
     useEffect(() => {
         inputRef.current.focus()
@@ -67,19 +70,36 @@ const Home = () => {
         fetchData()
     }, [activeCategoryTab])
 
+    const onEnterInput = (event) => {
+        const { key } = event
+        const { value } = event.target
+        if (key === 'Enter') {
+            dispatch(setActiveCategory(searchQuery))
+        }
+    }
 
-    const onHoverIn = () => {
-        dispatch(updateIsHovered(true))
+    const onChangeInput = (event) => {
+        const { value } = event.target
+        dispatch(updateSearchInput(value))
+    }
+
+    const onSearchButtonClicked = () => {
+        dispatch(setActiveCategory(searchQuery))
+    }
+
+
+    const onHoverIn = (id) => {
+        dispatch(updateIsHovered(id))
     }
 
     const onMouseHoverOut = () => {
-        dispatch(updateIsHovered(false))
+        dispatch(updateIsHovered(0))
     }
 
     const updateActiveTab = (tab) => {
         dispatch(setActiveCategory(tab))
     }
-    console.log(categoriesArray)
+    // console.log(categoriesArray)
     const renderCategoriesList = () => (
         <>
             <ul className='category-list'>
@@ -94,11 +114,14 @@ const Home = () => {
         <ul className='collection-pictures-list'>
             {picturesArray.map((each) =>
                 <PicturesListItem key={uuidv4()} pictureData={each}
+                    isHoveredOn={isHoveredOn}
                     onHoverIn={onHoverIn}
                     onMouseHoverOut={onMouseHoverOut} />
             )}
         </ul>
     </>
+
+
 
     const renderFailureView = () => <p>Oops! Something Went wrong!</p>
 
@@ -126,8 +149,10 @@ const Home = () => {
                     type='text'
                     className='button-input input'
                     ref={inputRef}
+                    onChange={onChangeInput}
+                    onKeyDown={onEnterInput}
                 />
-                <button className='button-input search-button'><FaSearch /></button>
+                <button className='button-input search-button' onClick={onSearchButtonClicked}><FaSearch /></button>
             </div>
             <br />
             {renderCategoriesList()}
