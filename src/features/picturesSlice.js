@@ -57,6 +57,9 @@ export const pictureSlice = createSlice({
         updateIsHovered: (state, action) => {
             state.isHovered = action.payload
         },
+        resetPage:(state)=>{
+            state.page = 1
+        },
 
         nextPage: (state) => {
             state.page = state.page + 1
@@ -71,6 +74,6 @@ export const pictureSlice = createSlice({
 })
 
 
-export const { updateSearchInput, setActiveCategory, updatePicturesList, setApiStatus, updateIsHovered, nextPage, previousPage } = pictureSlice.actions
+export const { updateSearchInput, setActiveCategory, updatePicturesList, setApiStatus, updateIsHovered, nextPage, previousPage, resetPage } = pictureSlice.actions
 
 export default pictureSlice.reducer
