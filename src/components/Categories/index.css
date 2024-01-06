@@ -12,10 +12,13 @@
   cursor: pointer;
   border: none;
   background-color: transparent;
+  transition: 0.5s;
 }
 
 .category-button:hover {
   color: red;
+  scale: 1.1;
+
 }
 
 .active-category-tab {
