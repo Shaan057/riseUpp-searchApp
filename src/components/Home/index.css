@@ -94,3 +94,32 @@
   height: 50vh;
   overflow-y: auto;
 }
+
+.no-results-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+  font-weight: 500;
+}
+
+.no-results-img {
+  height: 300px;
+}
+
+.failure-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+.failure-img {
+  width: 90%;
+}
+@media screen and (min-width: 768px) {
+  .failure-img {
+    width: 50%;
+  }
+}

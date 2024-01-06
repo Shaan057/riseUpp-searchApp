@@ -110,20 +110,28 @@ const Home = () => {
         </>
     )
 
-    const renderPicturesList = () => <>
-        <ul className='collection-pictures-list'>
-            {picturesArray.map((each) =>
-                <PicturesListItem key={uuidv4()} pictureData={each}
-                    isHoveredOn={isHoveredOn}
-                    onHoverIn={onHoverIn}
-                    onMouseHoverOut={onMouseHoverOut} />
-            )}
-        </ul>
-    </>
+    const noResultsView = () => <div className='no-results-view'>
+        <img className='no-results-img' src='https://res.cloudinary.com/dx8csuvrh/image/upload/v1704527044/riseup/no_results_found_rlz8pm.jpg' alt='no-results' />
+        <p>No Results Found!</p>
+    </div>
+
+    const renderPicturesList = () =>
+        picturesArray.length ?
+            <ul className='collection-pictures-list'>
+                {picturesArray.map((each) =>
+                    <PicturesListItem key={uuidv4()} pictureData={each}
+                        isHoveredOn={isHoveredOn}
+                        onHoverIn={onHoverIn}
+                        onMouseHoverOut={onMouseHoverOut} />
+                )}
+            </ul> : noResultsView()
 
 
+    const renderFailureView = () => <div className='failure-view'>
+        <img className='failure-img' src='https://res.cloudinary.com/dx8csuvrh/image/upload/v1704527966/riseup/something_went_wrong_jng5l5.jpg' alt='failure' />
+    </div>
 
-    const renderFailureView = () => <p>Oops! Something Went wrong!</p>
+
 
     const renderLoadingView = () => <Spinner />
 
