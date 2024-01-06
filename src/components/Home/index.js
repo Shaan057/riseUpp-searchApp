@@ -73,7 +73,6 @@ const Home = () => {
 
     const onEnterInput = (event) => {
         const { key } = event
-        const { value } = event.target
         if (key === 'Enter') {
             dispatch(setActiveCategory(searchQuery))
             dispatch(resetPage())
@@ -128,10 +127,10 @@ const Home = () => {
     const renderPicturesList = () =>
         picturesArray.length ?
             <>   <ul className='collection-pictures-list'>
-                {picturesArray.map((each) =>
-                    <PicturesListItem key={uuidv4()} pictureData={each} />
-                )}
-            </ul>
+                    {picturesArray.map((each) =>
+                        <PicturesListItem key={uuidv4()} pictureData={each} />
+                    )}
+                </ul>
                 {pagination()}
             </>
             : noResultsView()
@@ -163,6 +162,7 @@ const Home = () => {
             <h1 className='riseup-heading'>RiseUpp</h1>
             <div className='input-container'>
                 <input
+                value={searchQuery}
                     placeholder='search-collections'
                     type='text'
                     className='button-input input'
