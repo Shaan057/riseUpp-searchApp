@@ -1,29 +1,25 @@
 import './index.css'
 
-import { useState } from 'react'
-
+import { useSelector, useDispatch } from 'react-redux';
+import { updateIsHovered, nextPage, previousPage } from '../../features/picturesSlice';
 
 const PicturesListItem = (props) => {
-    const [isClicked, setClick] = useState(false)
+    const { pictureData } = props
+    const dispatch = useDispatch()
 
-    const { pictureData, onHoverIn, onMouseHoverOut, isHoveredOn } = props
+    const isHoveredOn = useSelector((state) => state.isHovered)
     const {
-        id, title, description, publishedAt, lastCollectedAt,
-        updatedAt, featured, totalPhotos, shareKey, tags,
-        links, user, coverPhoto, previewPhotos, likes } = pictureData
+        id, title, publishedAt,
+        coverPhoto } = pictureData
     const date = new Date(publishedAt).toLocaleDateString()
     const { full, raw, regular, small, thumb, small_s3 } = coverPhoto.urls
 
-
-
-
-
     const handleMouseEnter = () => {
-        onHoverIn(id)
+        dispatch(updateIsHovered(id))
     }
 
     const handleMouseLeave = () => {
-        onMouseHoverOut(0)
+        dispatch(updateIsHovered(0))
     }
 
     const popup = () => <>
@@ -41,6 +37,7 @@ const PicturesListItem = (props) => {
                 {popup()}
             </a>
         </li>
+
     )
 }
 
