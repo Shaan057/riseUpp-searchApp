@@ -22,6 +22,7 @@ const initialState = {
     activeCategory: categoriesList[0],
     apiStatus: apiStatusConstants.initial,
     isHovered: 0,
+    page: 1
 }
 
 export const pictureSlice = createSlice({
@@ -51,15 +52,25 @@ export const pictureSlice = createSlice({
                 default:
                     state.apiStatus = apiStatusConstants.initial
             }
-
         },
+
         updateIsHovered: (state, action) => {
             state.isHovered = action.payload
-        }
+        },
+
+        nextPage: (state) => {
+            state.page = state.page + 1
+        },
+
+        previousPage: (state) => {
+            if (state.page > 1) {
+                state.page = state.page - 1
+            }
+        },
     }
 })
 
 
-export const { updateSearchInput, setActiveCategory, updatePicturesList, setApiStatus, updateIsHovered } = pictureSlice.actions
+export const { updateSearchInput, setActiveCategory, updatePicturesList, setApiStatus, updateIsHovered, nextPage, previousPage } = pictureSlice.actions
 
 export default pictureSlice.reducer

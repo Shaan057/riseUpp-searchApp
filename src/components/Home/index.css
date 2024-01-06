@@ -123,3 +123,31 @@
     width: 50%;
   }
 }
+
+.pagination {
+  padding-top: 10px;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.page-button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: rgba(255, 0, 0, 0.386);
+}
+
+.page-button:hover {
+  color: red;
+}
+.page-no {
+  position: relative;
+  top: -2px;
+  font-size: 13px;
+  color: rgb(0, 0, 255);
+  font-weight: 600;
+}

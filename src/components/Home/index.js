@@ -1,8 +1,8 @@
 import './index.css'
 import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateSearchInput, updatePicturesList, setActiveCategory, setApiStatus, updateIsHovered } from '../../features/picturesSlice';
-import { FaSearch } from "react-icons/fa";
+import { updateSearchInput, updatePicturesList, setActiveCategory, setApiStatus, nextPage, previousPage } from '../../features/picturesSlice';
+import { FaSearch, FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 import { v4 as uuidv4 } from 'uuid'
 import Categories from '../Categories'
 import axios from 'axios'
@@ -17,7 +17,8 @@ const Home = () => {
     const activeCategoryTab = useSelector((state) => state.activeCategory)
     const getApiStatus = useSelector((state) => state.apiStatus)
     const searchQuery = useSelector((state) => state.searchInput)
-    const isHoveredOn = useSelector((state) => state.isHovered)
+    const pageNo = useSelector((state) => state.page)
+
     const inputRef = useRef(null)
     const dispatch = useDispatch()
     // console.log(picturesArray)
@@ -57,7 +58,7 @@ const Home = () => {
         const fetchData = async () => {
             try {
                 dispatch(setApiStatus('IN_PROGRESS'))
-                const url = `https://api.unsplash.com/search/collections/?client_id=YtioLfE9uuJXGIolXkEXU9QaIUTmbihEFu_XgS8tXeU&page=1&query=${activeCategoryTab}`
+                const url = `https://api.unsplash.com/search/collections/?client_id=YtioLfE9uuJXGIolXkEXU9QaIUTmbihEFu_XgS8tXeU&page=${pageNo}&query=${activeCategoryTab}`
                 const response = await axios.get(url)
                 // console.log(response.data.results)
                 const formattedData = response.data.results.map((each) => convertToPascalCase(each))
@@ -68,7 +69,7 @@ const Home = () => {
             }
         }
         fetchData()
-    }, [activeCategoryTab])
+    }, [activeCategoryTab,pageNo])
 
     const onEnterInput = (event) => {
         const { key } = event
@@ -87,24 +88,31 @@ const Home = () => {
         dispatch(setActiveCategory(searchQuery))
     }
 
-
-    const onHoverIn = (id) => {
-        dispatch(updateIsHovered(id))
+    const onClickNextPage = () => {
+        dispatch(nextPage())
+    }
+    const onClickPreviousPage = () => {
+        dispatch(previousPage())
     }
 
-    const onMouseHoverOut = () => {
-        dispatch(updateIsHovered(0))
-    }
+    const pagination = () => (
+        <div className='pagination'>
+            <button className='page-button' type='button' onClick={onClickPreviousPage}>
+                <FaAngleDoubleLeft />
+            </button>
+            <span className='page-no'>{pageNo}</span>
+            <button className='page-button' type='button' onClick={onClickNextPage}>
+                <FaAngleDoubleRight />
+            </button>
+        </div>
+    )
 
-    const updateActiveTab = (tab) => {
-        dispatch(setActiveCategory(tab))
-    }
     // console.log(categoriesArray)
     const renderCategoriesList = () => (
         <>
             <ul className='category-list'>
                 {categoriesArray.map((category) =>
-                    <Categories key={uuidv4()} category={category} updateActiveTab={updateActiveTab} activeCategoryTab={activeCategoryTab} />
+                    <Categories key={uuidv4()} category={category} />
                 )}
             </ul>
         </>
@@ -117,14 +125,14 @@ const Home = () => {
 
     const renderPicturesList = () =>
         picturesArray.length ?
-            <ul className='collection-pictures-list'>
+            <>   <ul className='collection-pictures-list'>
                 {picturesArray.map((each) =>
-                    <PicturesListItem key={uuidv4()} pictureData={each}
-                        isHoveredOn={isHoveredOn}
-                        onHoverIn={onHoverIn}
-                        onMouseHoverOut={onMouseHoverOut} />
+                    <PicturesListItem key={uuidv4()} pictureData={each} />
                 )}
-            </ul> : noResultsView()
+            </ul>
+                {pagination()}
+            </>
+            : noResultsView()
 
 
     const renderFailureView = () => <div className='failure-view'>
