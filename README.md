@@ -55,29 +55,29 @@ npm start                           //to start the application
 
 #### <span style="color: yellow;"> Home View</span>
 
-###### ![Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704536303/riseup/Screenshot_421_vfx9hz.png)
+###### [Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704536303/riseup/Screenshot_421_vfx9hz.png)
 
 #### <span style="color: yellow;"> No Results View</span>
 
-###### ![Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704536302/riseup/Screenshot_422_e6msln.png)
+###### [Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704536302/riseup/Screenshot_422_e6msln.png)
 
 #### <span style="color: yellow;"> Failure View</span>
 
-###### ![Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704536302/riseup/Screenshot_423_j0dqh3.png)
+###### [Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704536302/riseup/Screenshot_423_j0dqh3.png)
 
 ### <span style="color: Orange;"> Desktop View</span>
 
 #### <span style="color: yellow;">Home Page</span>
 
-###### ![Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704528606/riseup/home-page.png)
+###### [Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704528606/riseup/home-page.png)
 
 #### <span style="color: yellow;">No Results View</span>
 
-###### ![Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704528603/riseup/no-results-view.png)
+###### [Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704528603/riseup/no-results-view.png)
 
 #### <span style="color: yellow;">Failure view</span>
 
-###### ![Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704528604/riseup/failure-view.png)
+###### [Link](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704528604/riseup/failure-view.png)
 
 ### <span style="color: violet;">Demo</span>
 
