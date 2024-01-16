@@ -14,12 +14,13 @@ npm start                           //to start the application
 
 ### <span style="color: red;"> Tech Stack</span>
 
-> <span style="color: violet;">Frontend - ReactJS (Redux)</span>
+> <span style="color: violet;">Frontend - ReactJS (Redux store & Redux-thunk)</span>
 
 ### <span style="color: red;"> Features and Functionality</span>
 
 - App consist of `Input section`, `picture category bar` & `list of pictures` with `pagination`. 
 - `Home page` consists of `input Section` where user can `enter picture category` to get a list of pictures.
+- State management using react-redux, redux-thunk and @reduxjs/toolkit. (minimalist approach to handling asynchronous logic).
 - On clicking on the `categories tab` will display the `respective category images`.
 - `Active category` tab on the tab.
 - On `hover` over the picture `pop` ups the `image info`.
