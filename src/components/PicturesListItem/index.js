@@ -2,6 +2,7 @@ import './index.css'
 
 import { useSelector, useDispatch } from 'react-redux';
 import { updateIsHovered, nextPage, previousPage } from '../../features/picturesSlice';
+import LazyLoad from 'react-lazy-load'
 
 const PicturesListItem = (props) => {
     const { pictureData } = props
@@ -33,7 +34,10 @@ const PicturesListItem = (props) => {
     return (
         <li className='picture-list-item' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
             <a href={full} rel="noopener noreferrer">
-                <img className='picture' src={regular} alt={title} />
+                <LazyLoad className='lazy'>
+                    <img className='picture' src={regular} alt={title} />
+                </LazyLoad>
+
                 {popup()}
             </a>
         </li>

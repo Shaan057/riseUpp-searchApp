@@ -10,12 +10,17 @@
   cursor: pointer;
   transition: 0.8s;
 }
-
+.lazy{
+  height: 200px;
+}
 .picture:hover {
   border-radius: 0px;
 }
 
 @media screen and (min-width: 768px) {
+  .lazy{
+  height: 300px;
+}
   .picture-list-item {
     width: 225px;
     height: 300px;
