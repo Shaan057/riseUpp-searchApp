@@ -1,14 +1,14 @@
 import './index.css'
 import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateSearchInput, updatePicturesList, setActiveCategory, setApiStatus, nextPage, previousPage, resetPage } from '../../features/picturesSlice';
+import { updateSearchInput, updatePicturesList, setActiveCategory, nextPage, previousPage, resetPage } from '../../features/picturesSlice';
 import { FaSearch, FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 import { v4 as uuidv4 } from 'uuid'
 import Categories from '../Categories'
-import axios from 'axios'
 import PicturesListItem from '../PicturesListItem';
 import { apiStatusConstants } from '../../features/picturesSlice';
 import Spinner from '../Spinner'
+import { fetchData } from '../actions/actions';
 
 const Home = () => {
 
@@ -21,54 +21,15 @@ const Home = () => {
 
     const inputRef = useRef(null)
     const dispatch = useDispatch()
-    // console.log(picturesArray)
-    // console.log(activeCategoryTab)
 
     useEffect(() => {
         inputRef.current.focus()
     }, [])
 
-    const convertToPascalCase = (data) => {
-        return {
-            id: data.id,
-            title: data.title,
-            description: data.description,
-            publishedAt: data.published_at,
-            lastCollectedAt: data.last_collected_at,
-            updatedAt: data.updated_at,
-            featured: data.featured,
-            totalPhotos: data.total_photos,
-            private: data.private,
-            shareKey: data.share_key,
-            tags: data.tags,
-            links: data.links,
-            user: data.user,
-            coverPhoto: data.cover_photo,
-            previewPhotos: data.preview_photos.map((e) => ({
-                id: e.id,
-                createdAt: e.created_at,
-                updatedAt: e.updated_at,
-                blurHash: e.blur_hash,
-                urls: e.urls
-            }))
-        }
-    }
+    
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                dispatch(setApiStatus('IN_PROGRESS'))
-                const url = `https://api.unsplash.com/search/collections/?client_id=YtioLfE9uuJXGIolXkEXU9QaIUTmbihEFu_XgS8tXeU&page=${pageNo}&query=${activeCategoryTab}`
-                const response = await axios.get(url)
-                // console.log(response.data.results)
-                const formattedData = response.data.results.map((each) => convertToPascalCase(each))
-                dispatch(updatePicturesList(formattedData))
-                dispatch(setApiStatus('SUCCESS'))
-            } catch (error) {
-                dispatch(setApiStatus('FAILURE'))
-            }
-        }
-        fetchData()
+        dispatch(fetchData());
     }, [activeCategoryTab,pageNo])
 
     const onEnterInput = (event) => {
