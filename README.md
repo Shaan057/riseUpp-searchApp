@@ -20,10 +20,11 @@ npm start                           //to start the application
 
 - App consist of `Input section`, `picture category bar` & `list of pictures` with `pagination`. 
 - `Home page` consists of `input Section` where user can `enter picture category` to get a list of pictures.
-- State management using react-redux, redux-thunk and @reduxjs/toolkit. (minimalist approach to handling asynchronous logic).
+- State management using `react-redux`, `redux-thunk` and `@reduxjs/toolkit`. (minimalist approach to handling asynchronous logic).
 - On clicking on the `categories tab` will display the `respective category images`.
 - `Active category` tab on the tab.
 - On `hover` over the picture `pop` ups the `image info`.
+- `Lazy-loading` of images.
 - `No Results view` in case of `no results` for user input.
 - `Failure view` on failure.
 - `Responsive`
