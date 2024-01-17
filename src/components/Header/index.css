@@ -1,0 +1,36 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.user-profile-image {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.user-name {
+
+}
+
+.login-button {
+    cursor: pointer;
+    padding: 5px;
+    border: none;
+    outline: none;
+    background-color: rgb(0, 102, 255);
+    border-radius: 5px;
+    color: white;
+}
+.logout-button{
+    background-color: rgba(255, 0, 0, 0.879);
+}
+
