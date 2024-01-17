@@ -34,19 +34,12 @@ const Header = () => {
         <nav className='navbar'>
             <h1 className='riseup-heading'>RiseUpp</h1>
             <div className='profile-container'>
-                {authenticatedStatus ?
-                    <>
-                        <img className='user-profile-image'
-                            src={isAuthenticated ? userDetails.picture : 'https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg'}
-                        />
-                        <span>{isAuthenticated ? userDetails.given_name : null}</span>
-                    </>
-                    :
-                    <img className='user-profile-image'
-                        src='https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg'
-                    />
-                }
-                {isAuthenticated
+                <img className='user-profile-image'
+                    src={authenticatedStatus ? userDetails.picture : 'https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg'}
+                />
+                <span>{authenticatedStatus ? userDetails.given_name : null}</span>
+
+                {authenticatedStatus
                     ? <button className='login-button logout-button' onClick={onLogoutButtonClicked}>Logout</button>
                     : <button className='login-button' onClick={onLoginButtonClicked}>Login</button>}
             </div>
