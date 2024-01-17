@@ -22,7 +22,9 @@ const initialState = {
     activeCategory: categoriesList[0],
     apiStatus: apiStatusConstants.initial,
     isHovered: 0,
-    page: 1
+    page: 1,
+    userDetails: null,
+    isAuthenticated: false
 }
 
 export const pictureSlice = createSlice({
@@ -57,7 +59,7 @@ export const pictureSlice = createSlice({
         updateIsHovered: (state, action) => {
             state.isHovered = action.payload
         },
-        resetPage:(state)=>{
+        resetPage: (state) => {
             state.page = 1
         },
 
@@ -70,10 +72,35 @@ export const pictureSlice = createSlice({
                 state.page = state.page - 1
             }
         },
+
+        updateUserDetails: (state, action) => {
+            state.userDetails = action.payload
+        }
+        ,
+        updateAuthenticationStatus: (state, action) => {
+            state.isAuthenticated = action.payload
+        }
+        ,
+        resetAuthDetails: (state) => {
+            state.userDetails = null
+            state.isAuthenticated = false
+        }
     }
 })
 
 
-export const { updateSearchInput, setActiveCategory, updatePicturesList, setApiStatus, updateIsHovered, nextPage, previousPage, resetPage } = pictureSlice.actions
+export const {
+    updateSearchInput,
+    setActiveCategory,
+    updatePicturesList,
+    setApiStatus,
+    updateIsHovered,
+    nextPage,
+    previousPage,
+    resetPage,
+    updateUserDetails,
+    updateAuthenticationStatus,
+    resetAuthDetails
+} = pictureSlice.actions
 
 export default pictureSlice.reducer
