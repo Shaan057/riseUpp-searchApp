@@ -9,6 +9,7 @@ git clone <github repository link>  //to clone the github repository
 npm install                         //to install all the dependencies required to run application
 npm start                           //to start the application
 ```
+### Configure your own auth on `auth0.com`
 
 ## <span style="color: Orange;"> Development</span>
 
@@ -18,6 +19,7 @@ npm start                           //to start the application
 
 ### <span style="color: red;"> Features and Functionality</span>
 
+- `Login`, `authentication` using `auth0`.
 - App consist of `Input section`, `picture category bar` & `list of pictures` with `pagination`. 
 - `Home page` consists of `input Section` where user can `enter picture category` to get a list of pictures.
 - State management using `react-redux`, `redux-thunk` and `@reduxjs/toolkit`. (minimalist approach to handling asynchronous logic).
