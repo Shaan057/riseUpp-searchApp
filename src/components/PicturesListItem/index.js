@@ -33,7 +33,7 @@ const PicturesListItem = (props) => {
 
     return (
         <li className='picture-list-item' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
-            <a href={full} rel="noopener noreferrer">
+            <a href={full} rel="noopener noreferrer" target='_blank'>
                 <LazyLoad className='lazy'>
                     <img className='picture' src={regular} alt={title} />
                 </LazyLoad>
