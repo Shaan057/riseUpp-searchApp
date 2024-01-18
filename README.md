@@ -9,6 +9,12 @@ git clone <github repository link>  //to clone the github repository
 npm install                         //to install all the dependencies required to run application
 npm start                           //to start the application
 ```
+### Configure your own auth on [auth0.com](https://auth0.com/)
+
+> when running on your machine:
+  - set Allowed Callback Urls: `http://localhost:yourport`
+  - set Allowed Logout Urls: `http://localhost:yourport`
+  - set Allowed Web Origins: `http://localhost:yourport`
 
 ## <span style="color: Orange;"> Development</span>
 
@@ -18,6 +24,7 @@ npm start                           //to start the application
 
 ### <span style="color: red;"> Features and Functionality</span>
 
+- `Login`, `authentication` using `auth0`.
 - App consist of `Input section`, `picture category bar` & `list of pictures` with `pagination`. 
 - `Home page` consists of `input Section` where user can `enter picture category` to get a list of pictures.
 - State management using `react-redux`, `redux-thunk` and `@reduxjs/toolkit`. (minimalist approach to handling asynchronous logic).
@@ -56,7 +63,6 @@ npm start                           //to start the application
 ### <span style="color: Orange;"> Mobile View</span>
 
 ###### [Home View](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704536303/riseup/Screenshot_421_vfx9hz.png)
-
 
 ###### [No Results View](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704536302/riseup/Screenshot_422_e6msln.png)
 
