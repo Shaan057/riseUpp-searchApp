@@ -9,7 +9,7 @@ git clone <github repository link>  //to clone the github repository
 npm install                         //to install all the dependencies required to run application
 npm start                           //to start the application
 ```
-### Configure your own auth on `auth0.com`
+### Configure your own auth on `[auth0.com](auth0.com)`
 
 > when running on your machine:
   - set Allowed Callback Urls: `http://localhost:yourport`
