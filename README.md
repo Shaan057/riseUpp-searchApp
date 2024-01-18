@@ -11,6 +11,11 @@ npm start                           //to start the application
 ```
 ### Configure your own auth on `auth0.com`
 
+> when running on your machine:
+  - set Allowed Callback Urls: `http://localhost:yourport`
+  - set Allowed Logout Urls: `http://localhost:yourport`
+  - set Allowed Web Origins: `http://localhost:yourport`
+
 ## <span style="color: Orange;"> Development</span>
 
 ### <span style="color: red;"> Tech Stack</span>
@@ -58,7 +63,6 @@ npm start                           //to start the application
 ### <span style="color: Orange;"> Mobile View</span>
 
 ###### [Home View](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704536303/riseup/Screenshot_421_vfx9hz.png)
-
 
 ###### [No Results View](https://res.cloudinary.com/dx8csuvrh/image/upload/v1704536302/riseup/Screenshot_422_e6msln.png)
 
