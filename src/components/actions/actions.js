@@ -37,8 +37,11 @@ const convertToPascalCase = (data) => {
 
 export const fetchData = () => {
     return async (dispatch, getState) => {
-        const { page, activeCategory } = getState()
+        const { page, activeCategory, isAuthenticated } = getState()
         try {
+            if (!isAuthenticated) {
+                throw new Error('Unauthenticated User')
+            }
             dispatch(setApiStatus(apiStatusConstants.inProgress))
             const url = `https://api.unsplash.com/search/collections/?client_id=YtioLfE9uuJXGIolXkEXU9QaIUTmbihEFu_XgS8tXeU&page=${page}&query=${activeCategory}`
             const response = await axios.get(url)
@@ -48,6 +51,7 @@ export const fetchData = () => {
             dispatch(setApiStatus(apiStatusConstants.success))
         } catch (error) {
             dispatch(setApiStatus(apiStatusConstants.failure))
+            console.log(error.message)
         }
     };
 };

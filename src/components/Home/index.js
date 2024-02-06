@@ -44,7 +44,7 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(fetchData());
-    }, [activeCategoryTab, pageNo])
+    }, [activeCategoryTab, pageNo, isAuthenticated])
 
     const onEnterInput = (event) => {
         const { key } = event
